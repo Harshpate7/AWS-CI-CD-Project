@@ -35,16 +35,15 @@ def predict_datapoint():
         )
         pred_df=data.get_data_as_dataframe()
         print(pred_df)
-        
-        
-        predict_pipepline =PredictPipeline()
-        results=predict_pipepline.predict(pred_df)
-        
+        print("Before Prediction")
+
+        predict_pipeline=PredictPipeline()
+        print("Mid Prediction")
+        results=predict_pipeline.predict(pred_df)
+        print("after Prediction")
         return render_template('home.html',results=results[0])
     
-def index():
-    logging.info("Rendering index page")
-    return render_template('index.html')
+
 
 if __name__ == "__main__":
     logging.info("Starting Flask application")
